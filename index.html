@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR JS</title>
+    <!-- A-Frame itself -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- Pure three.js code that the A-Frame components use for location-based AR -->
+    <script
+      type="text/javascript"
+      src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js"
+    ></script>
+    <!-- AR.js A-Frame components -->
+    <script
+      type="text/javascript"
+      src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"
+    ></script>
+  </head>
+  <body>
+    <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
+        <a-camera gps-new-camera='gpsMinDistance: 5' rotation-reader></a-camera>
+        <a-box material='color: red' geometry='primitive: box' gps-new-entity-place="latitude: -6.177402; longitude:106.802759" scale="10 10 10" look-at = "[gps-new-camera]"></a-box>
+        <a-box material='color: blue' geometry='primitive: box' gps-new-entity-place="latitude: -6.177245; longitude:106.801830" scale="10 10 10" look-at = "[gps-new-camera]"></a-box>
+        <a-text value="Apotik Century" 
+                gps-new-entity-place="latitude: -6.176971; longitude: 106.801161" 
+                scale="10 10 10" 
+                look-at="[gps-new-camera]"
+                color="red">
+        </a-text>
+        <a-text value="Puskesman Jatipulo" 
+                gps-new-entity-place="latitude: -6.176973; longitude: 106.803878" 
+                scale="10 10 10" 
+                look-at="[gps-new-camera]"
+                color="red">
+        </a-text>
+    </a-scene>
+  </body>
+</html>
